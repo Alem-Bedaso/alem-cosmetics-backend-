@@ -20,6 +20,7 @@ return [
     'allowed_origins' => [
         'http://localhost:3000',
         'http://127.0.0.1:3000',
+        'https://alem-cosmetics-frontend-zg6e.vercel.app',
         env('FRONTEND_URL', 'https://alem-cosmetics.vercel.app'),
     ],
 
