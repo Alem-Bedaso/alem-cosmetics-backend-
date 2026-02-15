@@ -11,7 +11,15 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
-        return Order::with('items.product')->where('user_id', $request->user()->id)->get();
+        $user = $request->user();
+        
+        // If admin, return all orders with user info
+        if ($user->role_id == 2) {
+            return Order::with(['items.product', 'user'])->orderBy('created_at', 'desc')->get();
+        }
+        
+        // If customer, return only their orders
+        return Order::with('items.product')->where('user_id', $user->id)->get();
     }
 
     public function show($id)
