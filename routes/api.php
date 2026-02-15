@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminController;
 
 // Public routes
 Route::post('/register', [AuthController::class, 'register']);
@@ -42,4 +43,10 @@ Route::middleware('auth:sanctum')->group(function () {
     
     // Categories (Admin)
     Route::post('/categories', [CategoryController::class, 'store']);
+    
+    // Admin routes
+    Route::get('/admin/users', [AdminController::class, 'getUsers']);
+    Route::put('/admin/users/{id}/role', [AdminController::class, 'updateUserRole']);
+    Route::delete('/admin/users/{id}', [AdminController::class, 'deleteUser']);
+    Route::get('/admin/stats', [AdminController::class, 'getStats']);
 });
