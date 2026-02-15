@@ -12,9 +12,9 @@ class AdminUserSeeder extends Seeder
     {
         // Create Admin User
         User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@alemcosmetics.com',
-            'password' => Hash::make('admin123'),
+            'name' => 'Alem Bedaso',
+            'email' => 'alem@bedaso.com',
+            'password' => Hash::make('alem1221'),
             'role_id' => 2, // Admin role
         ]);
 
@@ -27,7 +27,7 @@ class AdminUserSeeder extends Seeder
         ]);
 
         echo "Admin and Supplier users created successfully!\n";
-        echo "Admin Login: admin@alemcosmetics.com / admin123\n";
+        echo "Admin Login: alem@bedaso.com / alem1221\n";
         echo "Supplier Login: supplier@alemcosmetics.com / supplier123\n";
     }
 }
